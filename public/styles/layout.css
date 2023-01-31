@@ -24,8 +24,17 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
- .container {
+ main {
   background-color: #fafafa; /*added bc instructions said to*/
   width: 90%;
   margin: auto;
  }
+
+form {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+
+}
+
+

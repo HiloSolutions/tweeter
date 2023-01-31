@@ -1,0 +1,31 @@
+.form-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  font-family: 'Bungee', sans-serif;
+  font-size: 20px;
+}
+
+#tweet-label {
+    pointer-events: none;
+    color: #646058;
+}
+
+#tweet-text {
+  background-color: transparent;
+  border: none;
+  color: #242423;
+  font-size: 18px;
+  border-bottom: 0.15rem solid #555249;
+}
+
+
+#submit-btn {
+  background-color: #4152a1;
+  color: #fff;
+  border: none;
+  padding: 7px 10px;
+  text-transform:uppercase;
+  cursor: pointer;
+}
