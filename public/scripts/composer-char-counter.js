@@ -1,6 +1,12 @@
 $(document).ready(function() {
-  // --- our code goes here ---
   console.log(' the DOM is ready to be manipulated with jQuery');
+  //in lecture
+
+  $('textarea').click(function() {
+    console.log("i was clicked");
+    $(this).addClass('clicked');
+  });
+
 });
 
 
@@ -23,8 +29,3 @@ myTweet.addEventListener("keyup", function() {
   }
 });
 
-// myTweet.addEventListener("keyup", function() {
-//   const characters = this.value.length; //counts characters starting at 0.
-//   const charactersLeft = wordCount.innerText - characters;
-//   wordCount.innerText = charactersLeft;
-// });
