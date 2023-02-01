@@ -25,6 +25,7 @@
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://kit.fontawesome.com/81d8ede405.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></script>
 
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
@@ -53,9 +54,9 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
-      <form action="/tweets" method="POST">
+      <form id="tweet-form"action="/tweets" method="POST">
         <label for="tweet-text" id="tweet-label">What are you humming about?</label>
-        <textarea name="text" id="tweet-text" class=""></textarea>
+        <textarea name="text" id="tweet-text"></textarea>
         <div class="form-bottom">
           <button id="submit-btn" type="submit">Tweet</button>
           <output name="counter" id="counter" for="tweet-text">140</output>

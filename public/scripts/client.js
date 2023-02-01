@@ -4,34 +4,8 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function() {
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd"
-      },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ];
 
-
-
+  //SERIALIZE FORM DATA: then send it to the server as a query string.
   // RENDER TWEET: takes an array of tweet objects, appends to #tweets-container
   const renderTweets = function(arr) {
     arr.forEach(e => {
@@ -41,7 +15,7 @@ $(document).ready(function() {
   };
 
 
-  //NEW TWEET: takes in tweet object, returns a tweet <article>
+  //CREATE TWEET ELENENT: takes in tweet object, returns a tweet <article>
   const createTweetElement = function(tweet) {
     const $tweet = $(
       `<article class="tweet">
@@ -64,5 +38,29 @@ $(document).ready(function() {
     return $tweet;
   };
 
-  renderTweets(data);
+  //FORM SUBMISSION: Listen for submission, prevent default behaviour, reformat, send to server
+  $('#tweet-form').on('submit', function(e) {
+    e.preventDefault();
+    const newTweet = $(this).serialize();
+    $.post('/tweets',
+      newTweet,
+      () => {
+        //console.log(newTweet);
+      }
+    );
+
+  });
+
+  //LOAD TWEETS: fetches tweets from the http://localhost:8080/tweets page
+  const loadTweets = () => {
+    //use jQuery to make a request to /tweets
+    $.ajax('/tweets', { method: 'GET' })
+      .then(function(tweets) {
+        renderTweets(tweets);
+      });
+    //receive the array of tweets as JSON
+
+  };
+
+  loadTweets();
 });
