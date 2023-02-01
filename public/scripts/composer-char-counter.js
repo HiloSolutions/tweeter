@@ -1,31 +1,17 @@
 $(document).ready(function() {
-  console.log(' the DOM is ready to be manipulated with jQuery');
-  //in lecture
+  //CHARACTER COUNT: count characters of tweet
+  $('#tweet-text').keyup(function(event) {
+    const maxChar = 140;
+    const charCount = $(this).val().length;
+    const charactersLeft = maxChar - charCount;
+    $('#counter').text(charactersLeft);
 
-  $('textarea').click(function() {
-    console.log("i was clicked");
-    $(this).addClass('clicked');
+    //change color with css once charCount is exceeded
+    if (charactersLeft < 0) {
+      $('#counter').addClass('count-exceeded');
+    } else {
+      $('#counter').removeClass('count-exceeded');
+    }
   });
-
-});
-
-
-// CHARACTER COUNTER: variables
-const myTweet = document.getElementById("tweet-text");
-let wordCount = document.getElementById("counter");
-
-
-//CHARACTER COUNTER: event listener
-myTweet.addEventListener("keyup", function() {
-  const maxChar = 140;
-  const charCount = this.value.length; //counts characters starting at 0.
-  const charactersLeft = maxChar - charCount;
-  wordCount.innerText = charactersLeft;
-
-  if (charactersLeft < 0) {
-    document.getElementById("counter").style.color = "#c94642";
-  } else {
-    document.getElementById("counter").style.color = "#545149";
-  }
 });
 

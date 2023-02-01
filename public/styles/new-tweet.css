@@ -12,6 +12,14 @@
   color: #b0b7cf;
 }
 
+.count-exceeded {
+  color: #c94642;
+}
+
+.within-count {
+  color: #555249;
+}
+
 article.tweet {
   margin-top: 2em;
   padding: 10px;
@@ -47,7 +55,8 @@ article.tweet footer {
 }
 
 article.tweet img {
-  max-height: 3em;
+  max-height: 2em;
+  padding-right: 10px;
 }
 
 article.tweet i.fa-solid {
