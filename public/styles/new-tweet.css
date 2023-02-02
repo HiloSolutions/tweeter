@@ -55,6 +55,7 @@ article.tweet header {
 article.tweet p {
   padding: 0px 20px;
   font-weight: bold;
+  overflow-wrap: break-word;
 }
 
 article.tweet footer {
@@ -108,4 +109,12 @@ article.tweet i.fa-solid:hover {
 
 #new-tweet {
   display: none;
+}
+
+/*TABLET*/
+@media only screen and (max-width: 768px) {
+}
+
+/*DESKTOP*/
+@media only screen and (max-width: 1024px) {
 }

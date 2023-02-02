@@ -16,3 +16,15 @@
   font-size: 1em;
   margin-top: -30px;
 }
+
+/*TABLET*/
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .tablet {
+    background-color: #ececec;
+    background-image: url("https://www.transparenttextures.com/patterns/foggy-birds.png");
+  }
+}
+
+/*DESKTOP*/
+@media only screen and (max-width: 1024px) {
+}

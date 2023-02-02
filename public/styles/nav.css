@@ -34,3 +34,19 @@ nav {
   font-family: 'Bungee', sans-serif;
   font-size: 40px;
 }
+
+/*TABLET*/
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  nav {
+    color: #4152a1;
+  }
+
+  #show-form:hover {
+    color:#4152a1b3;
+    transition: 0.3s;
+  }
+}
+
+/*DESKTOP*/
+@media only screen and (min-width: 1024px) {
+}
