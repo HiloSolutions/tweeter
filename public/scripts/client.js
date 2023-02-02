@@ -9,7 +9,12 @@ $(document).ready(function() {
   $("#error-empty").hide();
   $("#error-tooLong").hide();
 
-  //SERIALIZE FORM DATA: then send it to the server as a query string.
+  //STRETCH: SHOW FORM
+  $('.nav-right').on('click', function() {
+    $('#new-tweet').toggle(300);
+  });
+
+
   // RENDER TWEET: takes an array of tweet objects, appends to #tweets-container
   const renderTweets = function(arr) {
     arr.forEach(e => {
@@ -42,7 +47,7 @@ $(document).ready(function() {
     return $tweet;
   };
 
-  
+
   //FORM SUBMISSION: Listen for submission, prevent default behaviour, reformat, send to server
   $('#tweet-form').on('submit', function(e) {
     e.preventDefault();
@@ -59,7 +64,7 @@ $(document).ready(function() {
       return;
     }
 
-    $('.error').fadeOut(50);
+    $('.error').slideUp(100);
     const newTweet = $(this).serialize();
     $.post('/tweets',
       newTweet,

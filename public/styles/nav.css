@@ -21,9 +21,13 @@ nav {
 .fa-angles-down {
   color: #c94642;
 }
+.nav-right {
+  cursor: pointer;
+}
 
-#write-tweet {
-  padding: 0;
+#show-form:hover {
+  color:#ecececb3;
+  transition: 0.3s;
 }
 
 #logo {

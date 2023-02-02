@@ -106,3 +106,6 @@ article.tweet i.fa-solid:hover {
   cursor: pointer;
 }
 
+#new-tweet {
+  display: none;
+}
