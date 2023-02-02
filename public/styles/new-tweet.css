@@ -20,6 +20,18 @@
   color: #555249;
 }
 
+.error {
+  display: none;
+  color: #C94642;
+  background-color: #f4dad9;
+  background-image: url('https://i.imgur.com/GnyDvKN.png');
+  background-repeat: no-repeat;
+  background-position: 10px;
+  border: 1px solid #C94642;
+  margin: 10px 0px;
+  padding: 10px 10px 10px 50px;
+}
+
 article.tweet {
   margin-top: 2em;
   padding: 10px;
@@ -37,7 +49,7 @@ article.tweet header {
   flex-direction: row;
   align-items: center;
   max-height: 3em;
-  padding-right: 20px ;
+  padding-right: 20px;
 }
 
 article.tweet p {
@@ -61,7 +73,8 @@ article.tweet img {
 
 article.tweet i.fa-solid {
   color: #4152a1;
-  padding-left: 10px /*chose padding instead of margin so that cursor stays on in hover*/
+  padding-left: 10px
+    /*chose padding instead of margin so that cursor stays on in hover*/
 }
 
 article.tweet i.fa-solid:hover {
@@ -70,9 +83,9 @@ article.tweet i.fa-solid:hover {
 }
 
 #tweet-label {
-    pointer-events: none;
- 
-    font-weight: bold;
+  pointer-events: none;
+
+  font-weight: bold;
 }
 
 #tweet-text {
@@ -89,6 +102,7 @@ article.tweet i.fa-solid:hover {
   color: #fff;
   border: none;
   padding: 7px 10px;
-  text-transform:uppercase;
+  text-transform: uppercase;
   cursor: pointer;
 }
+

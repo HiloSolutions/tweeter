@@ -5,13 +5,16 @@
  */
 $(document).ready(function() {
 
+  //Error messages are hidden by default.
+  $("#error-empty").hide();
+  $("#error-tooLong").hide();
 
   //SERIALIZE FORM DATA: then send it to the server as a query string.
   // RENDER TWEET: takes an array of tweet objects, appends to #tweets-container
   const renderTweets = function(arr) {
     arr.forEach(e => {
       const $tweet = createTweetElement(e);
-      $('#tweet-container').append($tweet);
+      $('#tweet-container').prepend($tweet);
     });
   };
 
@@ -25,7 +28,7 @@ $(document).ready(function() {
           <div>${tweet.user.name}</div>
           <div class="user-handle">${tweet.user.handle}</div>
         </header>
-        <p>${tweet.content.text}</p>
+        <p>${escape(tweet.content.text)}</p>
         <footer>
           <div>${timeago.format(tweet.created_at)}</div>
           <div>
@@ -39,40 +42,37 @@ $(document).ready(function() {
     return $tweet;
   };
 
+  
   //FORM SUBMISSION: Listen for submission, prevent default behaviour, reformat, send to server
   $('#tweet-form').on('submit', function(e) {
     e.preventDefault();
 
     const wordCount = $('textarea').val().length;
     if (wordCount < 1) {
-      alert("Oops! Looks like your tweet is empty. Enter some text and try again.");
+      $(".error").html("Error: Your tweet is empty.");
+      $('.error').fadeIn(100);
       return;
     }
     if (wordCount > 140) {
-      alert("You went over the maximum characters.");
+      $(".error").html("Error: Your tweet is too long.");
+      $('.error').fadeIn(100);
       return;
     }
 
+    $('.error').fadeOut(50);
     const newTweet = $(this).serialize();
     $.post('/tweets',
       newTweet,
-      () => {
-        //console.log(newTweet);
-      }
+      loadTweets,
     );
 
   });
 
   //LOAD TWEETS: fetches tweets from the http://localhost:8080/tweets page
   const loadTweets = () => {
-    //use jQuery to make a request to /tweets
     $.ajax('/tweets', { method: 'GET' })
-      .then(function(tweets) {
-        renderTweets(tweets);
-      });
-    //receive the array of tweets as JSON
-
+      .then(renderTweets);
   };
-  
+
   loadTweets();
 });
