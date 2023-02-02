@@ -1,0 +1,19 @@
+
+@media only screen and (min-width: 1024px) {
+  .content-container {
+    display: flex;
+    margin: 0;
+
+  }
+  .profile {
+    margin: 168px 10% 0 20px;
+    max-width: 40%;
+   }
+
+
+  main {
+    background-color: #fafafa; /*added bc instructions said to*/
+    max-width: 50%;
+    margin: 120px 20px 0 0;
+   }
+}

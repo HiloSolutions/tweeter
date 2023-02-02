@@ -21,6 +21,12 @@ nav {
 .fa-angles-down {
   color: #c94642;
 }
+
+#bouncing-nav-arrow {
+  position: absolute;
+  animation: bounce 2s linear infinite;
+}
+
 .nav-right {
   cursor: pointer;
 }
@@ -35,18 +41,8 @@ nav {
   font-size: 40px;
 }
 
-/*TABLET*/
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-  nav {
-    color: #4152a1;
-  }
-
-  #show-form:hover {
-    color:#4152a1b3;
-    transition: 0.3s;
-  }
-}
-
-/*DESKTOP*/
-@media only screen and (min-width: 1024px) {
+@keyframes bounce {
+  0%   { transform: translateY(23px); }
+  50%  { transform: translateY(28px); }
+  100% { transform: translateY(23px); }
 }
