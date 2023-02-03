@@ -29,7 +29,7 @@ $(document).ready(function() {
 
   // When the user clicks on the button, scroll to the top of the document
   $('#scroll-btn').on('click', function() {
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    document.documentElement.scrollTop = 0;
   });
 });
 

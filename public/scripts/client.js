@@ -4,7 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const escape = function (str) {
+const escape = function(str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
@@ -18,11 +18,13 @@ $(document).ready(function() {
   //STRETCH: SHOW FORM
   $('.nav-right').on('click', function() {
     $('#new-tweet').toggle(300);
+      $('tweet-text').focus();
   });
 
 
   // RENDER TWEET: takes an array of tweet objects, appends to #tweets-container
   const renderTweets = function(arr) {
+    $('#tweet-container').empty();
     arr.forEach(e => {
       const $tweet = createTweetElement(e);
       $('#tweet-container').prepend($tweet);
@@ -30,7 +32,7 @@ $(document).ready(function() {
   };
 
 
-  //CREATE TWEET ELENENT: takes in tweet object, returns a tweet <article>
+  //CREATE TWEET ELEMENT: takes in tweet object, returns a tweet <article>
   const createTweetElement = function(tweet) {
     const $tweet = $(
       `<article class="tweet">
@@ -57,7 +59,6 @@ $(document).ready(function() {
   //FORM SUBMISSION: Listen for submission, prevent default behaviour, reformat, send to server
   $('#tweet-form').on('submit', function(e) {
     e.preventDefault();
-
     const wordCount = $('textarea').val().length;
     if (wordCount < 1) {
       $(".error").html("Error: Your tweet is empty.");
@@ -69,14 +70,16 @@ $(document).ready(function() {
       $('.error').fadeIn(100);
       return;
     }
-
     $('.error').slideUp(100);
     const newTweet = $(this).serialize();
     $.post('/tweets',
       newTweet,
-      loadTweets,
-    );
-
+    )
+      .then(function() {
+        $('textarea').val('');
+        $('#counter').text(140);
+        loadTweets();
+      });
   });
 
   //LOAD TWEETS: fetches tweets from the http://localhost:8080/tweets page
