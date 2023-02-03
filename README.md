@@ -17,37 +17,6 @@ This repository is the starter code for the project: Students will fork and clon
 - Express
 - Node 5.10.x or above
 
-Final Product
-"Create URL" "EditUrl" "login" "database"
+##Final Product
 
-Dependencies
-Node.js
-Express
-EJS
-Body-parser
-Chance
-Timeago
-MD5
-
-Getting Started
-Install all dependencies (using the npm install command).
-Run the development web server using the node express_server.js command.
-How To Use Tweeter
-Register/Login
-You must be logged in to create, view and edit links with this app. That said, anyone can use your shortened url if you share it with them (see the last point)!
-
-Simply 'Register' or 'Login' with your email and password, and you're all set.
-
-Create New Links
-Simply paste the url you want to shorten in the 'Create New URL' tab on navigation bar.
-
-That's it!
-
-Edit or Delete Short Links
-In 'My URLs', you can delete or edit any link that you want.
-
-Only you can see and edit your database!
-
-Use Your Short Link
-The path to use any short link is /u/:shortLink. This will redirect you to the destination of your long url. Sharing in this way is perfect on applications like Twitter where ever character matters in your post.
-
+Simply toggle the top left navigation button called 'write a new tweet' to start your post. Kep your thoughts short (less than 140 characters!). Now you can share ideas and view the ideas of others right on your feed.
